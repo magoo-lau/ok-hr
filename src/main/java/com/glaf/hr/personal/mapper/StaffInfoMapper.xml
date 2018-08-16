@@ -1,0 +1,1481 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.glaf.hr.personal.mapper.StaffInfoMapper">
+
+ 	<resultMap id="staffInfoResultMap"	type="com.glaf.hr.personal.domain.StaffInfo">
+        <id property="id" column="ID_" jdbcType="VARCHAR"/>
+        <result property="code" column="CODE_" jdbcType="VARCHAR"/>
+        <result property="name" column="NAME_" jdbcType="VARCHAR"/>
+        <result property="sex" column="SEX_" jdbcType="VARCHAR"/>
+        <result property="deptId" column="DEPT_ID_" jdbcType="VARCHAR"/>
+        <result property="department" column="DEPARTMENT_" jdbcType="VARCHAR"/>
+        <result property="post" column="POST_" jdbcType="VARCHAR"/>
+        <result property="entryDate" column="ENTRY_DATE_" jdbcType="TIMESTAMP"/>
+        <result property="userId" column="USER_ID_" jdbcType="VARCHAR"/>
+        <result property="staffStatus" column="STAFF_STATUS_" jdbcType="VARCHAR"/>
+        <result property="becomerDate" column="BECOMER_DATE_" jdbcType="TIMESTAMP"/>
+        <result property="professionType" column="PROFESSION_TYPE_" jdbcType="VARCHAR"/>
+        <result property="employmentForm" column="EMPLOYMENT_FORM_" jdbcType="VARCHAR"/>
+        <result property="cardNo" column="CARD_NO_" jdbcType="VARCHAR"/>
+        <result property="birthday" column="BIRTHDAY_" jdbcType="TIMESTAMP"/>
+        <result property="age" column="AGE_" jdbcType="INTEGER"/>
+        <result property="nativePlace" column="NATIVE_PLACE_" jdbcType="VARCHAR"/>
+        <result property="politicalStatus" column="POLITICAL_STATUS_" jdbcType="VARCHAR"/>
+        <result property="nation" column="NATION_" jdbcType="VARCHAR"/>
+        <result property="maritalStatus" column="MARITAL_STATUS_" jdbcType="VARCHAR"/>
+        <result property="registeredResidence" column="REGISTERED_RESIDENCE_" jdbcType="VARCHAR"/>
+        <result property="cardNoExpire" column="CARD_NO_EXPIRE_" jdbcType="VARCHAR"/>
+        <result property="mobileTelphone" column="MOBILE_TELPHONE_" jdbcType="VARCHAR"/>
+        <result property="email" column="EMAIL_" jdbcType="VARCHAR"/>
+        <result property="homeAddress" column="HOME_ADDRESS_" jdbcType="VARCHAR"/>
+        <result property="educationalBackground" column="EDUCATIONAL_BACKGROUND_" jdbcType="VARCHAR"/>
+        <result property="degree" column="DEGREE_" jdbcType="VARCHAR"/>
+        <result property="graduateInstitutions" column="GRADUATE_INSTITUTIONS_" jdbcType="VARCHAR"/>
+        <result property="profession" column="PROFESSION_" jdbcType="VARCHAR"/>
+        <result property="graduationTime" column="GRADUATION_TIME_" jdbcType="TIMESTAMP"/>
+        <result property="foreignLanguage" column="FOREIGN_LANGUAGE_" jdbcType="VARCHAR"/>
+        <result property="technicalTitle" column="TECHNICAL_TITLE_" jdbcType="VARCHAR"/>
+        <result property="educationalExperience" column="EDUCATIONAL_EXPERIENCE_" jdbcType="VARCHAR"/>
+        <result property="workExperience" column="WORK_EXPERIENCE_" jdbcType="VARCHAR"/>
+        <result property="tenantId" column="TENANT_ID_" jdbcType="VARCHAR"/>
+        <result property="tenantName" column="TENANT_NAME_" jdbcType="VARCHAR"/>
+        <result property="deleteFlag" column="DELETE_FLAG_" jdbcType="INTEGER"/>
+        <result property="topid" column="TOPID" jdbcType="VARCHAR"/>
+        <result property="parentId" column="PARENT_ID" jdbcType="BIGINT"/>
+        <result property="treeId" column="TREE_ID" jdbcType="VARCHAR"/>
+        <result property="indexId" column="INDEX_ID" jdbcType="BIGINT"/>
+        <result property="listno" column="LISTNO" jdbcType="BIGINT"/>
+        <result property="createdate" column="CREATEDATE" jdbcType="TIMESTAMP"/>
+        <result property="updatedate" column="UPDATEDATE" jdbcType="TIMESTAMP"/>
+        <result property="lessessid" column="LESSESSID" jdbcType="VARCHAR"/>
+        <result property="creater" column="CREATER" jdbcType="VARCHAR"/>
+        <result property="updater" column="UPDATER" jdbcType="VARCHAR"/>
+	</resultMap>
+
+ 
+	<insert id="insertStaffInfo" parameterType="com.glaf.hr.personal.domain.StaffInfo">
+		insert into HR_STAFF_INFO 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+		    ID_
+			<if test="code != null">
+				,CODE_ 
+			</if>
+			<if test="name != null">
+				,NAME_ 
+			</if>
+			<if test="sex != null">
+				,SEX_ 
+			</if>
+			<if test="deptId != null">
+				,DEPT_ID_ 
+			</if>
+			<if test="department != null">
+				,DEPARTMENT_ 
+			</if>
+			<if test="post != null">
+				,POST_ 
+			</if>
+			<if test="entryDate != null">
+				,ENTRY_DATE_ 
+			</if>
+			<if test="userId != null">
+				,USER_ID_ 
+			</if>
+			<if test="staffStatus != null">
+				,STAFF_STATUS_ 
+			</if>
+			<if test="becomerDate != null">
+				,BECOMER_DATE_ 
+			</if>
+			<if test="professionType != null">
+				,PROFESSION_TYPE_ 
+			</if>
+			<if test="employmentForm != null">
+				,EMPLOYMENT_FORM_ 
+			</if>
+			<if test="cardNo != null">
+				,CARD_NO_ 
+			</if>
+			<if test="birthday != null">
+				,BIRTHDAY_ 
+			</if>
+			<if test="age != null">
+				,AGE_ 
+			</if>
+			<if test="nativePlace != null">
+				,NATIVE_PLACE_ 
+			</if>
+			<if test="politicalStatus != null">
+				,POLITICAL_STATUS_ 
+			</if>
+			<if test="nation != null">
+				,NATION_ 
+			</if>
+			<if test="maritalStatus != null">
+				,MARITAL_STATUS_ 
+			</if>
+			<if test="registeredResidence != null">
+				,REGISTERED_RESIDENCE_ 
+			</if>
+			<if test="cardNoExpire != null">
+				,CARD_NO_EXPIRE_ 
+			</if>
+			<if test="mobileTelphone != null">
+				,MOBILE_TELPHONE_ 
+			</if>
+			<if test="email != null">
+				,EMAIL_ 
+			</if>
+			<if test="homeAddress != null">
+				,HOME_ADDRESS_ 
+			</if>
+			<if test="educationalBackground != null">
+				,EDUCATIONAL_BACKGROUND_ 
+			</if>
+			<if test="degree != null">
+				,DEGREE_ 
+			</if>
+			<if test="graduateInstitutions != null">
+				,GRADUATE_INSTITUTIONS_ 
+			</if>
+			<if test="profession != null">
+				,PROFESSION_ 
+			</if>
+			<if test="graduationTime != null">
+				,GRADUATION_TIME_ 
+			</if>
+			<if test="foreignLanguage != null">
+				,FOREIGN_LANGUAGE_ 
+			</if>
+			<if test="technicalTitle != null">
+				,TECHNICAL_TITLE_ 
+			</if>
+			<if test="educationalExperience != null">
+				,EDUCATIONAL_EXPERIENCE_ 
+			</if>
+			<if test="workExperience != null">
+				,WORK_EXPERIENCE_ 
+			</if>
+			<if test="tenantId != null">
+				,TENANT_ID_ 
+			</if>
+			<if test="tenantName != null">
+				,TENANT_NAME_ 
+			</if>
+			<if test="deleteFlag != null">
+				,DELETE_FLAG_ 
+			</if>
+			<if test="topid != null">
+				,TOPID 
+			</if>
+			<if test="parentId != null">
+				,PARENT_ID 
+			</if>
+			<if test="treeId != null">
+				,TREE_ID 
+			</if>
+			<if test="indexId != null">
+				,INDEX_ID 
+			</if>
+			<if test="listno != null">
+				,LISTNO 
+			</if>
+			<if test="createdate != null">
+				,CREATEDATE 
+			</if>
+			<if test="updatedate != null">
+				,UPDATEDATE 
+			</if>
+			<if test="lessessid != null">
+				,LESSESSID 
+			</if>
+			<if test="creater != null">
+				,CREATER 
+			</if>
+			<if test="updater != null">
+				,UPDATER 
+			</if>
+        </trim>
+
+		<trim prefix=" values (" suffix=")" suffixOverrides=",">
+			  #{id, jdbcType=VARCHAR}
+	     
+			<if test="code != null">
+				,#{code, jdbcType=VARCHAR}
+			</if>
+			<if test="name != null">
+				,#{name, jdbcType=VARCHAR}
+			</if>
+			<if test="sex != null">
+				,#{sex, jdbcType=VARCHAR}
+			</if>
+			<if test="deptId != null">
+				,#{deptId, jdbcType=VARCHAR}
+			</if>
+			<if test="department != null">
+				,#{department, jdbcType=VARCHAR}
+			</if>
+			<if test="post != null">
+				,#{post, jdbcType=VARCHAR}
+			</if>
+			<if test="entryDate != null">
+				,#{entryDate, jdbcType=TIMESTAMP}
+			</if>
+			<if test="userId != null">
+				,#{userId, jdbcType=VARCHAR}
+			</if>
+			<if test="staffStatus != null">
+				,#{staffStatus, jdbcType=VARCHAR}
+			</if>
+			<if test="becomerDate != null">
+				,#{becomerDate, jdbcType=TIMESTAMP}
+			</if>
+			<if test="professionType != null">
+				,#{professionType, jdbcType=VARCHAR}
+			</if>
+			<if test="employmentForm != null">
+				,#{employmentForm, jdbcType=VARCHAR}
+			</if>
+			<if test="cardNo != null">
+				,#{cardNo, jdbcType=VARCHAR}
+			</if>
+			<if test="birthday != null">
+				,#{birthday, jdbcType=TIMESTAMP}
+			</if>
+			<if test="age != null">
+				,#{age, jdbcType=INTEGER}
+			</if>
+			<if test="nativePlace != null">
+				,#{nativePlace, jdbcType=VARCHAR}
+			</if>
+			<if test="politicalStatus != null">
+				,#{politicalStatus, jdbcType=VARCHAR}
+			</if>
+			<if test="nation != null">
+				,#{nation, jdbcType=VARCHAR}
+			</if>
+			<if test="maritalStatus != null">
+				,#{maritalStatus, jdbcType=VARCHAR}
+			</if>
+			<if test="registeredResidence != null">
+				,#{registeredResidence, jdbcType=VARCHAR}
+			</if>
+			<if test="cardNoExpire != null">
+				,#{cardNoExpire, jdbcType=VARCHAR}
+			</if>
+			<if test="mobileTelphone != null">
+				,#{mobileTelphone, jdbcType=VARCHAR}
+			</if>
+			<if test="email != null">
+				,#{email, jdbcType=VARCHAR}
+			</if>
+			<if test="homeAddress != null">
+				,#{homeAddress, jdbcType=VARCHAR}
+			</if>
+			<if test="educationalBackground != null">
+				,#{educationalBackground, jdbcType=VARCHAR}
+			</if>
+			<if test="degree != null">
+				,#{degree, jdbcType=VARCHAR}
+			</if>
+			<if test="graduateInstitutions != null">
+				,#{graduateInstitutions, jdbcType=VARCHAR}
+			</if>
+			<if test="profession != null">
+				,#{profession, jdbcType=VARCHAR}
+			</if>
+			<if test="graduationTime != null">
+				,#{graduationTime, jdbcType=TIMESTAMP}
+			</if>
+			<if test="foreignLanguage != null">
+				,#{foreignLanguage, jdbcType=VARCHAR}
+			</if>
+			<if test="technicalTitle != null">
+				,#{technicalTitle, jdbcType=VARCHAR}
+			</if>
+			<if test="educationalExperience != null">
+				,#{educationalExperience, jdbcType=VARCHAR}
+			</if>
+			<if test="workExperience != null">
+				,#{workExperience, jdbcType=VARCHAR}
+			</if>
+			<if test="tenantId != null">
+				,#{tenantId, jdbcType=VARCHAR}
+			</if>
+			<if test="tenantName != null">
+				,#{tenantName, jdbcType=VARCHAR}
+			</if>
+			<if test="deleteFlag != null">
+				,#{deleteFlag, jdbcType=INTEGER}
+			</if>
+			<if test="topid != null">
+				,#{topid, jdbcType=VARCHAR}
+			</if>
+			<if test="parentId != null">
+				,#{parentId, jdbcType=BIGINT}
+			</if>
+			<if test="treeId != null">
+				,#{treeId, jdbcType=VARCHAR}
+			</if>
+			<if test="indexId != null">
+				,#{indexId, jdbcType=BIGINT}
+			</if>
+			<if test="listno != null">
+				,#{listno, jdbcType=BIGINT}
+			</if>
+			<if test="createdate != null">
+				,#{createdate, jdbcType=TIMESTAMP}
+			</if>
+			<if test="updatedate != null">
+				,#{updatedate, jdbcType=TIMESTAMP}
+			</if>
+			<if test="lessessid != null">
+				,#{lessessid, jdbcType=VARCHAR}
+			</if>
+			<if test="creater != null">
+				,#{creater, jdbcType=VARCHAR}
+			</if>
+			<if test="updater != null">
+				,#{updater, jdbcType=VARCHAR}
+			</if>
+	    </trim>
+    </insert>
+
+
+	<insert id="bulkInsertStaffInfo" parameterType="java.util.List">
+		insert into HR_STAFF_INFO ( 
+				ID_
+				,CODE_ 
+				,NAME_ 
+				,SEX_ 
+				,DEPT_ID_ 
+				,DEPARTMENT_ 
+				,POST_ 
+				,ENTRY_DATE_ 
+				,USER_ID_ 
+				,STAFF_STATUS_ 
+				,BECOMER_DATE_ 
+				,PROFESSION_TYPE_ 
+				,EMPLOYMENT_FORM_ 
+				,CARD_NO_ 
+				,BIRTHDAY_ 
+				,AGE_ 
+				,NATIVE_PLACE_ 
+				,POLITICAL_STATUS_ 
+				,NATION_ 
+				,MARITAL_STATUS_ 
+				,REGISTERED_RESIDENCE_ 
+				,CARD_NO_EXPIRE_ 
+				,MOBILE_TELPHONE_ 
+				,EMAIL_ 
+				,HOME_ADDRESS_ 
+				,EDUCATIONAL_BACKGROUND_ 
+				,DEGREE_ 
+				,GRADUATE_INSTITUTIONS_ 
+				,PROFESSION_ 
+				,GRADUATION_TIME_ 
+				,FOREIGN_LANGUAGE_ 
+				,TECHNICAL_TITLE_ 
+				,EDUCATIONAL_EXPERIENCE_ 
+				,WORK_EXPERIENCE_ 
+				,TENANT_ID_ 
+				,TENANT_NAME_ 
+				,DELETE_FLAG_ 
+				,TOPID 
+				,PARENT_ID 
+				,TREE_ID 
+				,INDEX_ID 
+				,LISTNO 
+				,CREATEDATE 
+				,UPDATEDATE 
+				,LESSESSID 
+				,CREATER 
+				,UPDATER 
+        ) values 
+		<foreach collection="list" item="staffInfo" index="index" separator=",">
+            (
+					#{staffInfo.id, jdbcType=VARCHAR}
+					,#{staffInfo.code, jdbcType=VARCHAR}
+					,#{staffInfo.name, jdbcType=VARCHAR}
+					,#{staffInfo.sex, jdbcType=VARCHAR}
+					,#{staffInfo.deptId, jdbcType=VARCHAR}
+					,#{staffInfo.department, jdbcType=VARCHAR}
+					,#{staffInfo.post, jdbcType=VARCHAR}
+					,#{staffInfo.entryDate, jdbcType=TIMESTAMP}
+					,#{staffInfo.userId, jdbcType=VARCHAR}
+					,#{staffInfo.staffStatus, jdbcType=VARCHAR}
+					,#{staffInfo.becomerDate, jdbcType=TIMESTAMP}
+					,#{staffInfo.professionType, jdbcType=VARCHAR}
+					,#{staffInfo.employmentForm, jdbcType=VARCHAR}
+					,#{staffInfo.cardNo, jdbcType=VARCHAR}
+					,#{staffInfo.birthday, jdbcType=TIMESTAMP}
+					,#{staffInfo.age, jdbcType=INTEGER}
+					,#{staffInfo.nativePlace, jdbcType=VARCHAR}
+					,#{staffInfo.politicalStatus, jdbcType=VARCHAR}
+					,#{staffInfo.nation, jdbcType=VARCHAR}
+					,#{staffInfo.maritalStatus, jdbcType=VARCHAR}
+					,#{staffInfo.registeredResidence, jdbcType=VARCHAR}
+					,#{staffInfo.cardNoExpire, jdbcType=VARCHAR}
+					,#{staffInfo.mobileTelphone, jdbcType=VARCHAR}
+					,#{staffInfo.email, jdbcType=VARCHAR}
+					,#{staffInfo.homeAddress, jdbcType=VARCHAR}
+					,#{staffInfo.educationalBackground, jdbcType=VARCHAR}
+					,#{staffInfo.degree, jdbcType=VARCHAR}
+					,#{staffInfo.graduateInstitutions, jdbcType=VARCHAR}
+					,#{staffInfo.profession, jdbcType=VARCHAR}
+					,#{staffInfo.graduationTime, jdbcType=TIMESTAMP}
+					,#{staffInfo.foreignLanguage, jdbcType=VARCHAR}
+					,#{staffInfo.technicalTitle, jdbcType=VARCHAR}
+					,#{staffInfo.educationalExperience, jdbcType=VARCHAR}
+					,#{staffInfo.workExperience, jdbcType=VARCHAR}
+					,#{staffInfo.tenantId, jdbcType=VARCHAR}
+					,#{staffInfo.tenantName, jdbcType=VARCHAR}
+					,#{staffInfo.deleteFlag, jdbcType=INTEGER}
+					,#{staffInfo.topid, jdbcType=VARCHAR}
+					,#{staffInfo.parentId, jdbcType=BIGINT}
+					,#{staffInfo.treeId, jdbcType=VARCHAR}
+					,#{staffInfo.indexId, jdbcType=BIGINT}
+					,#{staffInfo.listno, jdbcType=BIGINT}
+					,#{staffInfo.createdate, jdbcType=TIMESTAMP}
+					,#{staffInfo.updatedate, jdbcType=TIMESTAMP}
+					,#{staffInfo.lessessid, jdbcType=VARCHAR}
+					,#{staffInfo.creater, jdbcType=VARCHAR}
+					,#{staffInfo.updater, jdbcType=VARCHAR}
+		    )
+	   </foreach>
+    </insert>
+
+
+	<insert id="bulkInsertStaffInfo_oracle" parameterType="java.util.List">
+	    INSERT ALL 
+		<foreach collection="list" item="staffInfo" index="index">
+		  insert into HR_STAFF_INFO ( 
+					ID_
+					,CODE_ 
+					,NAME_ 
+					,SEX_ 
+					,DEPT_ID_ 
+					,DEPARTMENT_ 
+					,POST_ 
+					,ENTRY_DATE_ 
+					,USER_ID_ 
+					,STAFF_STATUS_ 
+					,BECOMER_DATE_ 
+					,PROFESSION_TYPE_ 
+					,EMPLOYMENT_FORM_ 
+					,CARD_NO_ 
+					,BIRTHDAY_ 
+					,AGE_ 
+					,NATIVE_PLACE_ 
+					,POLITICAL_STATUS_ 
+					,NATION_ 
+					,MARITAL_STATUS_ 
+					,REGISTERED_RESIDENCE_ 
+					,CARD_NO_EXPIRE_ 
+					,MOBILE_TELPHONE_ 
+					,EMAIL_ 
+					,HOME_ADDRESS_ 
+					,EDUCATIONAL_BACKGROUND_ 
+					,DEGREE_ 
+					,GRADUATE_INSTITUTIONS_ 
+					,PROFESSION_ 
+					,GRADUATION_TIME_ 
+					,FOREIGN_LANGUAGE_ 
+					,TECHNICAL_TITLE_ 
+					,EDUCATIONAL_EXPERIENCE_ 
+					,WORK_EXPERIENCE_ 
+					,TENANT_ID_ 
+					,TENANT_NAME_ 
+					,DELETE_FLAG_ 
+					,TOPID 
+					,PARENT_ID 
+					,TREE_ID 
+					,INDEX_ID 
+					,LISTNO 
+					,CREATEDATE 
+					,UPDATEDATE 
+					,LESSESSID 
+					,CREATER 
+					,UPDATER 
+			) values (
+					#{staffInfo.id, jdbcType=VARCHAR}
+					,#{staffInfo.code, jdbcType=VARCHAR}
+					,#{staffInfo.name, jdbcType=VARCHAR}
+					,#{staffInfo.sex, jdbcType=VARCHAR}
+					,#{staffInfo.deptId, jdbcType=VARCHAR}
+					,#{staffInfo.department, jdbcType=VARCHAR}
+					,#{staffInfo.post, jdbcType=VARCHAR}
+					,#{staffInfo.entryDate, jdbcType=TIMESTAMP}
+					,#{staffInfo.userId, jdbcType=VARCHAR}
+					,#{staffInfo.staffStatus, jdbcType=VARCHAR}
+					,#{staffInfo.becomerDate, jdbcType=TIMESTAMP}
+					,#{staffInfo.professionType, jdbcType=VARCHAR}
+					,#{staffInfo.employmentForm, jdbcType=VARCHAR}
+					,#{staffInfo.cardNo, jdbcType=VARCHAR}
+					,#{staffInfo.birthday, jdbcType=TIMESTAMP}
+					,#{staffInfo.age, jdbcType=INTEGER}
+					,#{staffInfo.nativePlace, jdbcType=VARCHAR}
+					,#{staffInfo.politicalStatus, jdbcType=VARCHAR}
+					,#{staffInfo.nation, jdbcType=VARCHAR}
+					,#{staffInfo.maritalStatus, jdbcType=VARCHAR}
+					,#{staffInfo.registeredResidence, jdbcType=VARCHAR}
+					,#{staffInfo.cardNoExpire, jdbcType=VARCHAR}
+					,#{staffInfo.mobileTelphone, jdbcType=VARCHAR}
+					,#{staffInfo.email, jdbcType=VARCHAR}
+					,#{staffInfo.homeAddress, jdbcType=VARCHAR}
+					,#{staffInfo.educationalBackground, jdbcType=VARCHAR}
+					,#{staffInfo.degree, jdbcType=VARCHAR}
+					,#{staffInfo.graduateInstitutions, jdbcType=VARCHAR}
+					,#{staffInfo.profession, jdbcType=VARCHAR}
+					,#{staffInfo.graduationTime, jdbcType=TIMESTAMP}
+					,#{staffInfo.foreignLanguage, jdbcType=VARCHAR}
+					,#{staffInfo.technicalTitle, jdbcType=VARCHAR}
+					,#{staffInfo.educationalExperience, jdbcType=VARCHAR}
+					,#{staffInfo.workExperience, jdbcType=VARCHAR}
+					,#{staffInfo.tenantId, jdbcType=VARCHAR}
+					,#{staffInfo.tenantName, jdbcType=VARCHAR}
+					,#{staffInfo.deleteFlag, jdbcType=INTEGER}
+					,#{staffInfo.topid, jdbcType=VARCHAR}
+					,#{staffInfo.parentId, jdbcType=BIGINT}
+					,#{staffInfo.treeId, jdbcType=VARCHAR}
+					,#{staffInfo.indexId, jdbcType=BIGINT}
+					,#{staffInfo.listno, jdbcType=BIGINT}
+					,#{staffInfo.createdate, jdbcType=TIMESTAMP}
+					,#{staffInfo.updatedate, jdbcType=TIMESTAMP}
+					,#{staffInfo.lessessid, jdbcType=VARCHAR}
+					,#{staffInfo.creater, jdbcType=VARCHAR}
+					,#{staffInfo.updater, jdbcType=VARCHAR}
+			)
+	   </foreach>
+	    SELECT * FROM dual
+    </insert>
+
+	 
+	<update id="updateStaffInfo" parameterType="com.glaf.hr.personal.domain.StaffInfo">
+		update HR_STAFF_INFO
+		set
+        <trim prefix="" suffix="" suffixOverrides=",">		
+			<if test="code != null">
+				CODE_ = #{code, jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				NAME_ = #{name, jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				SEX_ = #{sex, jdbcType=VARCHAR},
+			</if>
+			<if test="deptId != null">
+				DEPT_ID_ = #{deptId, jdbcType=VARCHAR},
+			</if>
+			<if test="department != null">
+				DEPARTMENT_ = #{department, jdbcType=VARCHAR},
+			</if>
+			<if test="post != null">
+				POST_ = #{post, jdbcType=VARCHAR},
+			</if>
+			<if test="entryDate != null">
+				ENTRY_DATE_ = #{entryDate, jdbcType=TIMESTAMP},
+			</if>
+			<if test="userId != null">
+				USER_ID_ = #{userId, jdbcType=VARCHAR},
+			</if>
+			<if test="staffStatus != null">
+				STAFF_STATUS_ = #{staffStatus, jdbcType=VARCHAR},
+			</if>
+			<if test="becomerDate != null">
+				BECOMER_DATE_ = #{becomerDate, jdbcType=TIMESTAMP},
+			</if>
+			<if test="professionType != null">
+				PROFESSION_TYPE_ = #{professionType, jdbcType=VARCHAR},
+			</if>
+			<if test="employmentForm != null">
+				EMPLOYMENT_FORM_ = #{employmentForm, jdbcType=VARCHAR},
+			</if>
+			<if test="cardNo != null">
+				CARD_NO_ = #{cardNo, jdbcType=VARCHAR},
+			</if>
+			<if test="birthday != null">
+				BIRTHDAY_ = #{birthday, jdbcType=TIMESTAMP},
+			</if>
+			<if test="age != null">
+				AGE_ = #{age, jdbcType=INTEGER},
+			</if>
+			<if test="nativePlace != null">
+				NATIVE_PLACE_ = #{nativePlace, jdbcType=VARCHAR},
+			</if>
+			<if test="politicalStatus != null">
+				POLITICAL_STATUS_ = #{politicalStatus, jdbcType=VARCHAR},
+			</if>
+			<if test="nation != null">
+				NATION_ = #{nation, jdbcType=VARCHAR},
+			</if>
+			<if test="maritalStatus != null">
+				MARITAL_STATUS_ = #{maritalStatus, jdbcType=VARCHAR},
+			</if>
+			<if test="registeredResidence != null">
+				REGISTERED_RESIDENCE_ = #{registeredResidence, jdbcType=VARCHAR},
+			</if>
+			<if test="cardNoExpire != null">
+				CARD_NO_EXPIRE_ = #{cardNoExpire, jdbcType=VARCHAR},
+			</if>
+			<if test="mobileTelphone != null">
+				MOBILE_TELPHONE_ = #{mobileTelphone, jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				EMAIL_ = #{email, jdbcType=VARCHAR},
+			</if>
+			<if test="homeAddress != null">
+				HOME_ADDRESS_ = #{homeAddress, jdbcType=VARCHAR},
+			</if>
+			<if test="educationalBackground != null">
+				EDUCATIONAL_BACKGROUND_ = #{educationalBackground, jdbcType=VARCHAR},
+			</if>
+			<if test="degree != null">
+				DEGREE_ = #{degree, jdbcType=VARCHAR},
+			</if>
+			<if test="graduateInstitutions != null">
+				GRADUATE_INSTITUTIONS_ = #{graduateInstitutions, jdbcType=VARCHAR},
+			</if>
+			<if test="profession != null">
+				PROFESSION_ = #{profession, jdbcType=VARCHAR},
+			</if>
+			<if test="graduationTime != null">
+				GRADUATION_TIME_ = #{graduationTime, jdbcType=TIMESTAMP},
+			</if>
+			<if test="foreignLanguage != null">
+				FOREIGN_LANGUAGE_ = #{foreignLanguage, jdbcType=VARCHAR},
+			</if>
+			<if test="technicalTitle != null">
+				TECHNICAL_TITLE_ = #{technicalTitle, jdbcType=VARCHAR},
+			</if>
+			<if test="educationalExperience != null">
+				EDUCATIONAL_EXPERIENCE_ = #{educationalExperience, jdbcType=VARCHAR},
+			</if>
+			<if test="workExperience != null">
+				WORK_EXPERIENCE_ = #{workExperience, jdbcType=VARCHAR},
+			</if>
+			<if test="tenantId != null">
+				TENANT_ID_ = #{tenantId, jdbcType=VARCHAR},
+			</if>
+			<if test="tenantName != null">
+				TENANT_NAME_ = #{tenantName, jdbcType=VARCHAR},
+			</if>
+			<if test="deleteFlag != null">
+				DELETE_FLAG_ = #{deleteFlag, jdbcType=INTEGER},
+			</if>
+			<if test="topid != null">
+				TOPID = #{topid, jdbcType=VARCHAR},
+			</if>
+			<if test="parentId != null">
+				PARENT_ID = #{parentId, jdbcType=BIGINT},
+			</if>
+			<if test="treeId != null">
+				TREE_ID = #{treeId, jdbcType=VARCHAR},
+			</if>
+			<if test="indexId != null">
+				INDEX_ID = #{indexId, jdbcType=BIGINT},
+			</if>
+			<if test="listno != null">
+				LISTNO = #{listno, jdbcType=BIGINT},
+			</if>
+			<if test="createdate != null">
+				CREATEDATE = #{createdate, jdbcType=TIMESTAMP},
+			</if>
+			<if test="updatedate != null">
+				UPDATEDATE = #{updatedate, jdbcType=TIMESTAMP},
+			</if>
+			<if test="lessessid != null">
+				LESSESSID = #{lessessid, jdbcType=VARCHAR},
+			</if>
+			<if test="creater != null">
+				CREATER = #{creater, jdbcType=VARCHAR},
+			</if>
+			<if test="updater != null">
+				UPDATER = #{updater, jdbcType=VARCHAR},
+			</if>
+        </trim>
+		where
+          ID_ = #{id, jdbcType=VARCHAR}
+		
+    </update>
+
+ 
+	<delete id="deleteStaffInfoById" parameterType="string"> 
+        delete from HR_STAFF_INFO
+        where ID_ =	#{id}
+	</delete>
+
+	
+	<delete id="deleteStaffInfos" parameterType="com.glaf.hr.personal.query.StaffInfoQuery">
+		delete from HR_STAFF_INFO
+		where ( 
+ 			  ID_ IN
+              <foreach item="x_id" index="index" collection="ids" 
+                     open="(" separator="," close=")">
+                  #{x_id}
+              </foreach>
+		)
+	</delete>
+
+
+	<select id="getStaffInfoById" parameterType="string" resultMap="staffInfoResultMap">
+		select * from HR_STAFF_INFO where ID_ = #{id}
+	</select>
+
+
+	<select id="getStaffInfos" 
+	    parameterType="com.glaf.hr.personal.query.StaffInfoQuery"
+		resultMap="staffInfoResultMap">
+		select distinct E.*
+		<include refid="selectStaffInfosSql" />
+		<choose>
+		  <when test="orderBy != null">
+		     order by ${orderBy}
+          </when>
+		  <otherwise>
+		      order by E.ID_ desc
+		  </otherwise>
+        </choose>
+	</select>
+
+
+	<select id="getStaffInfoCount" 
+	    parameterType="com.glaf.hr.personal.query.StaffInfoQuery"
+		resultType="int">
+		select count(*)
+		<include refid="selectStaffInfosSql" />
+	</select>
+
+
+	<sql id="selectStaffInfosSql">
+
+		from HR_STAFF_INFO E
+		
+		<where>
+		       1 = 1  
+			 
+	        
+			<if test="code != null and code != '' ">
+				and E.CODE_ = #{code}
+            </if>
+
+			<if test="codeLike != null and codeLike != '' ">
+				and E.CODE_ like #{codeLike}
+            </if>
+
+			<if test="codes != null and codes.size() &gt; 0">
+			    and E.CODE_ IN
+                <foreach item="x_code" index="index" collection="codes" 
+                     open="(" separator="," close=")">
+                  #{x_code}
+                </foreach>
+			</if>
+	        
+			<if test="name != null and name != '' ">
+				and E.NAME_ = #{name}
+            </if>
+
+			<if test="nameLike != null and nameLike != '' ">
+				and E.NAME_ like #{nameLike}
+            </if>
+
+			<if test="names != null and names.size() &gt; 0">
+			    and E.NAME_ IN
+                <foreach item="x_name" index="index" collection="names" 
+                     open="(" separator="," close=")">
+                  #{x_name}
+                </foreach>
+			</if>
+	        
+			<if test="sex != null and sex != '' ">
+				and E.SEX_ = #{sex}
+            </if>
+
+			<if test="sexLike != null and sexLike != '' ">
+				and E.SEX_ like #{sexLike}
+            </if>
+
+			<if test="sexs != null and sexs.size() &gt; 0">
+			    and E.SEX_ IN
+                <foreach item="x_sex" index="index" collection="sexs" 
+                     open="(" separator="," close=")">
+                  #{x_sex}
+                </foreach>
+			</if>
+	        
+			<if test="deptId != null and deptId != '' ">
+				and E.DEPT_ID_ = #{deptId}
+            </if>
+
+			<if test="deptIdLike != null and deptIdLike != '' ">
+				and E.DEPT_ID_ like #{deptIdLike}
+            </if>
+
+			<if test="deptIds != null and deptIds.size() &gt; 0">
+			    and E.DEPT_ID_ IN
+                <foreach item="x_deptId" index="index" collection="deptIds" 
+                     open="(" separator="," close=")">
+                  #{x_deptId}
+                </foreach>
+			</if>
+	        
+			<if test="department != null and department != '' ">
+				and E.DEPARTMENT_ = #{department}
+            </if>
+
+			<if test="departmentLike != null and departmentLike != '' ">
+				and E.DEPARTMENT_ like #{departmentLike}
+            </if>
+
+			<if test="departments != null and departments.size() &gt; 0">
+			    and E.DEPARTMENT_ IN
+                <foreach item="x_department" index="index" collection="departments" 
+                     open="(" separator="," close=")">
+                  #{x_department}
+                </foreach>
+			</if>
+	        
+			<if test="post != null and post != '' ">
+				and E.POST_ = #{post}
+            </if>
+
+			<if test="postLike != null and postLike != '' ">
+				and E.POST_ like #{postLike}
+            </if>
+
+			<if test="posts != null and posts.size() &gt; 0">
+			    and E.POST_ IN
+                <foreach item="x_post" index="index" collection="posts" 
+                     open="(" separator="," close=")">
+                  #{x_post}
+                </foreach>
+			</if>
+
+			<if test="entryDateGreaterThanOrEqual != null">
+				and E.ENTRY_DATE_ &gt;= #{entryDateGreaterThanOrEqual}
+            </if>
+
+			<if test="entryDateLessThanOrEqual != null">
+				and E.ENTRY_DATE_ &lt;= #{entryDateLessThanOrEqual}
+            </if>
+
+	        
+			<if test="userId != null and userId != '' ">
+				and E.USER_ID_ = #{userId}
+            </if>
+
+			<if test="userIdLike != null and userIdLike != '' ">
+				and E.USER_ID_ like #{userIdLike}
+            </if>
+
+			<if test="userIds != null and userIds.size() &gt; 0">
+			    and E.USER_ID_ IN
+                <foreach item="x_userId" index="index" collection="userIds" 
+                     open="(" separator="," close=")">
+                  #{x_userId}
+                </foreach>
+			</if>
+	        
+			<if test="staffStatus != null and staffStatus != '' ">
+				and E.STAFF_STATUS_ = #{staffStatus}
+            </if>
+
+			<if test="staffStatusLike != null and staffStatusLike != '' ">
+				and E.STAFF_STATUS_ like #{staffStatusLike}
+            </if>
+
+			<if test="staffStatuss != null and staffStatuss.size() &gt; 0">
+			    and E.STAFF_STATUS_ IN
+                <foreach item="x_staffStatus" index="index" collection="staffStatuss" 
+                     open="(" separator="," close=")">
+                  #{x_staffStatus}
+                </foreach>
+			</if>
+
+			<if test="becomerDateGreaterThanOrEqual != null">
+				and E.BECOMER_DATE_ &gt;= #{becomerDateGreaterThanOrEqual}
+            </if>
+
+			<if test="becomerDateLessThanOrEqual != null">
+				and E.BECOMER_DATE_ &lt;= #{becomerDateLessThanOrEqual}
+            </if>
+
+	        
+			<if test="professionType != null and professionType != '' ">
+				and E.PROFESSION_TYPE_ = #{professionType}
+            </if>
+
+			<if test="professionTypeLike != null and professionTypeLike != '' ">
+				and E.PROFESSION_TYPE_ like #{professionTypeLike}
+            </if>
+
+			<if test="professionTypes != null and professionTypes.size() &gt; 0">
+			    and E.PROFESSION_TYPE_ IN
+                <foreach item="x_professionType" index="index" collection="professionTypes" 
+                     open="(" separator="," close=")">
+                  #{x_professionType}
+                </foreach>
+			</if>
+	        
+			<if test="employmentForm != null and employmentForm != '' ">
+				and E.EMPLOYMENT_FORM_ = #{employmentForm}
+            </if>
+
+			<if test="employmentFormLike != null and employmentFormLike != '' ">
+				and E.EMPLOYMENT_FORM_ like #{employmentFormLike}
+            </if>
+
+			<if test="employmentForms != null and employmentForms.size() &gt; 0">
+			    and E.EMPLOYMENT_FORM_ IN
+                <foreach item="x_employmentForm" index="index" collection="employmentForms" 
+                     open="(" separator="," close=")">
+                  #{x_employmentForm}
+                </foreach>
+			</if>
+	        
+			<if test="cardNo != null and cardNo != '' ">
+				and E.CARD_NO_ = #{cardNo}
+            </if>
+
+			<if test="cardNoLike != null and cardNoLike != '' ">
+				and E.CARD_NO_ like #{cardNoLike}
+            </if>
+
+			<if test="cardNos != null and cardNos.size() &gt; 0">
+			    and E.CARD_NO_ IN
+                <foreach item="x_cardNo" index="index" collection="cardNos" 
+                     open="(" separator="," close=")">
+                  #{x_cardNo}
+                </foreach>
+			</if>
+
+			<if test="birthdayGreaterThanOrEqual != null">
+				and E.BIRTHDAY_ &gt;= #{birthdayGreaterThanOrEqual}
+            </if>
+
+			<if test="birthdayLessThanOrEqual != null">
+				and E.BIRTHDAY_ &lt;= #{birthdayLessThanOrEqual}
+            </if>
+
+
+			<if test="age != null">
+				and E.AGE_ = #{age}
+            </if>
+
+			<if test="ageGreaterThanOrEqual != null">
+				and E.AGE_ &gt;= #{ageGreaterThanOrEqual}
+            </if>
+
+			<if test="ageLessThanOrEqual != null">
+				and E.AGE_ &lt;= #{ageLessThanOrEqual}
+            </if>
+
+			<if test="ages != null and ages.size() &gt; 0">
+			    and E.AGE_ IN
+                <foreach item="x_age" index="index" collection="ages" 
+                     open="(" separator="," close=")">
+                  #{x_age}
+                </foreach>
+			</if>
+      
+	        
+			<if test="nativePlace != null and nativePlace != '' ">
+				and E.NATIVE_PLACE_ = #{nativePlace}
+            </if>
+
+			<if test="nativePlaceLike != null and nativePlaceLike != '' ">
+				and E.NATIVE_PLACE_ like #{nativePlaceLike}
+            </if>
+
+			<if test="nativePlaces != null and nativePlaces.size() &gt; 0">
+			    and E.NATIVE_PLACE_ IN
+                <foreach item="x_nativePlace" index="index" collection="nativePlaces" 
+                     open="(" separator="," close=")">
+                  #{x_nativePlace}
+                </foreach>
+			</if>
+	        
+			<if test="politicalStatus != null and politicalStatus != '' ">
+				and E.POLITICAL_STATUS_ = #{politicalStatus}
+            </if>
+
+			<if test="politicalStatusLike != null and politicalStatusLike != '' ">
+				and E.POLITICAL_STATUS_ like #{politicalStatusLike}
+            </if>
+
+			<if test="politicalStatuss != null and politicalStatuss.size() &gt; 0">
+			    and E.POLITICAL_STATUS_ IN
+                <foreach item="x_politicalStatus" index="index" collection="politicalStatuss" 
+                     open="(" separator="," close=")">
+                  #{x_politicalStatus}
+                </foreach>
+			</if>
+	        
+			<if test="nation != null and nation != '' ">
+				and E.NATION_ = #{nation}
+            </if>
+
+			<if test="nationLike != null and nationLike != '' ">
+				and E.NATION_ like #{nationLike}
+            </if>
+
+			<if test="nations != null and nations.size() &gt; 0">
+			    and E.NATION_ IN
+                <foreach item="x_nation" index="index" collection="nations" 
+                     open="(" separator="," close=")">
+                  #{x_nation}
+                </foreach>
+			</if>
+	        
+			<if test="maritalStatus != null and maritalStatus != '' ">
+				and E.MARITAL_STATUS_ = #{maritalStatus}
+            </if>
+
+			<if test="maritalStatusLike != null and maritalStatusLike != '' ">
+				and E.MARITAL_STATUS_ like #{maritalStatusLike}
+            </if>
+
+			<if test="maritalStatuss != null and maritalStatuss.size() &gt; 0">
+			    and E.MARITAL_STATUS_ IN
+                <foreach item="x_maritalStatus" index="index" collection="maritalStatuss" 
+                     open="(" separator="," close=")">
+                  #{x_maritalStatus}
+                </foreach>
+			</if>
+	        
+			<if test="registeredResidence != null and registeredResidence != '' ">
+				and E.REGISTERED_RESIDENCE_ = #{registeredResidence}
+            </if>
+
+			<if test="registeredResidenceLike != null and registeredResidenceLike != '' ">
+				and E.REGISTERED_RESIDENCE_ like #{registeredResidenceLike}
+            </if>
+
+			<if test="registeredResidences != null and registeredResidences.size() &gt; 0">
+			    and E.REGISTERED_RESIDENCE_ IN
+                <foreach item="x_registeredResidence" index="index" collection="registeredResidences" 
+                     open="(" separator="," close=")">
+                  #{x_registeredResidence}
+                </foreach>
+			</if>
+	        
+			<if test="cardNoExpire != null and cardNoExpire != '' ">
+				and E.CARD_NO_EXPIRE_ = #{cardNoExpire}
+            </if>
+
+			<if test="cardNoExpireLike != null and cardNoExpireLike != '' ">
+				and E.CARD_NO_EXPIRE_ like #{cardNoExpireLike}
+            </if>
+
+			<if test="cardNoExpires != null and cardNoExpires.size() &gt; 0">
+			    and E.CARD_NO_EXPIRE_ IN
+                <foreach item="x_cardNoExpire" index="index" collection="cardNoExpires" 
+                     open="(" separator="," close=")">
+                  #{x_cardNoExpire}
+                </foreach>
+			</if>
+	        
+			<if test="mobileTelphone != null and mobileTelphone != '' ">
+				and E.MOBILE_TELPHONE_ = #{mobileTelphone}
+            </if>
+
+			<if test="mobileTelphoneLike != null and mobileTelphoneLike != '' ">
+				and E.MOBILE_TELPHONE_ like #{mobileTelphoneLike}
+            </if>
+
+			<if test="mobileTelphones != null and mobileTelphones.size() &gt; 0">
+			    and E.MOBILE_TELPHONE_ IN
+                <foreach item="x_mobileTelphone" index="index" collection="mobileTelphones" 
+                     open="(" separator="," close=")">
+                  #{x_mobileTelphone}
+                </foreach>
+			</if>
+	        
+			<if test="email != null and email != '' ">
+				and E.EMAIL_ = #{email}
+            </if>
+
+			<if test="emailLike != null and emailLike != '' ">
+				and E.EMAIL_ like #{emailLike}
+            </if>
+
+			<if test="emails != null and emails.size() &gt; 0">
+			    and E.EMAIL_ IN
+                <foreach item="x_email" index="index" collection="emails" 
+                     open="(" separator="," close=")">
+                  #{x_email}
+                </foreach>
+			</if>
+	        
+			<if test="homeAddress != null and homeAddress != '' ">
+				and E.HOME_ADDRESS_ = #{homeAddress}
+            </if>
+
+			<if test="homeAddressLike != null and homeAddressLike != '' ">
+				and E.HOME_ADDRESS_ like #{homeAddressLike}
+            </if>
+
+			<if test="homeAddresss != null and homeAddresss.size() &gt; 0">
+			    and E.HOME_ADDRESS_ IN
+                <foreach item="x_homeAddress" index="index" collection="homeAddresss" 
+                     open="(" separator="," close=")">
+                  #{x_homeAddress}
+                </foreach>
+			</if>
+	        
+			<if test="educationalBackground != null and educationalBackground != '' ">
+				and E.EDUCATIONAL_BACKGROUND_ = #{educationalBackground}
+            </if>
+
+			<if test="educationalBackgroundLike != null and educationalBackgroundLike != '' ">
+				and E.EDUCATIONAL_BACKGROUND_ like #{educationalBackgroundLike}
+            </if>
+
+			<if test="educationalBackgrounds != null and educationalBackgrounds.size() &gt; 0">
+			    and E.EDUCATIONAL_BACKGROUND_ IN
+                <foreach item="x_educationalBackground" index="index" collection="educationalBackgrounds" 
+                     open="(" separator="," close=")">
+                  #{x_educationalBackground}
+                </foreach>
+			</if>
+	        
+			<if test="degree != null and degree != '' ">
+				and E.DEGREE_ = #{degree}
+            </if>
+
+			<if test="degreeLike != null and degreeLike != '' ">
+				and E.DEGREE_ like #{degreeLike}
+            </if>
+
+			<if test="degrees != null and degrees.size() &gt; 0">
+			    and E.DEGREE_ IN
+                <foreach item="x_degree" index="index" collection="degrees" 
+                     open="(" separator="," close=")">
+                  #{x_degree}
+                </foreach>
+			</if>
+	        
+			<if test="graduateInstitutions != null and graduateInstitutions != '' ">
+				and E.GRADUATE_INSTITUTIONS_ = #{graduateInstitutions}
+            </if>
+
+			<if test="graduateInstitutionsLike != null and graduateInstitutionsLike != '' ">
+				and E.GRADUATE_INSTITUTIONS_ like #{graduateInstitutionsLike}
+            </if>
+
+			<if test="graduateInstitutionss != null and graduateInstitutionss.size() &gt; 0">
+			    and E.GRADUATE_INSTITUTIONS_ IN
+                <foreach item="x_graduateInstitutions" index="index" collection="graduateInstitutionss" 
+                     open="(" separator="," close=")">
+                  #{x_graduateInstitutions}
+                </foreach>
+			</if>
+	        
+			<if test="profession != null and profession != '' ">
+				and E.PROFESSION_ = #{profession}
+            </if>
+
+			<if test="professionLike != null and professionLike != '' ">
+				and E.PROFESSION_ like #{professionLike}
+            </if>
+
+			<if test="professions != null and professions.size() &gt; 0">
+			    and E.PROFESSION_ IN
+                <foreach item="x_profession" index="index" collection="professions" 
+                     open="(" separator="," close=")">
+                  #{x_profession}
+                </foreach>
+			</if>
+
+			<if test="graduationTimeGreaterThanOrEqual != null">
+				and E.GRADUATION_TIME_ &gt;= #{graduationTimeGreaterThanOrEqual}
+            </if>
+
+			<if test="graduationTimeLessThanOrEqual != null">
+				and E.GRADUATION_TIME_ &lt;= #{graduationTimeLessThanOrEqual}
+            </if>
+
+	        
+			<if test="foreignLanguage != null and foreignLanguage != '' ">
+				and E.FOREIGN_LANGUAGE_ = #{foreignLanguage}
+            </if>
+
+			<if test="foreignLanguageLike != null and foreignLanguageLike != '' ">
+				and E.FOREIGN_LANGUAGE_ like #{foreignLanguageLike}
+            </if>
+
+			<if test="foreignLanguages != null and foreignLanguages.size() &gt; 0">
+			    and E.FOREIGN_LANGUAGE_ IN
+                <foreach item="x_foreignLanguage" index="index" collection="foreignLanguages" 
+                     open="(" separator="," close=")">
+                  #{x_foreignLanguage}
+                </foreach>
+			</if>
+	        
+			<if test="technicalTitle != null and technicalTitle != '' ">
+				and E.TECHNICAL_TITLE_ = #{technicalTitle}
+            </if>
+
+			<if test="technicalTitleLike != null and technicalTitleLike != '' ">
+				and E.TECHNICAL_TITLE_ like #{technicalTitleLike}
+            </if>
+
+			<if test="technicalTitles != null and technicalTitles.size() &gt; 0">
+			    and E.TECHNICAL_TITLE_ IN
+                <foreach item="x_technicalTitle" index="index" collection="technicalTitles" 
+                     open="(" separator="," close=")">
+                  #{x_technicalTitle}
+                </foreach>
+			</if>
+	        
+			<if test="educationalExperience != null and educationalExperience != '' ">
+				and E.EDUCATIONAL_EXPERIENCE_ = #{educationalExperience}
+            </if>
+
+			<if test="educationalExperienceLike != null and educationalExperienceLike != '' ">
+				and E.EDUCATIONAL_EXPERIENCE_ like #{educationalExperienceLike}
+            </if>
+
+			<if test="educationalExperiences != null and educationalExperiences.size() &gt; 0">
+			    and E.EDUCATIONAL_EXPERIENCE_ IN
+                <foreach item="x_educationalExperience" index="index" collection="educationalExperiences" 
+                     open="(" separator="," close=")">
+                  #{x_educationalExperience}
+                </foreach>
+			</if>
+	        
+			<if test="workExperience != null and workExperience != '' ">
+				and E.WORK_EXPERIENCE_ = #{workExperience}
+            </if>
+
+			<if test="workExperienceLike != null and workExperienceLike != '' ">
+				and E.WORK_EXPERIENCE_ like #{workExperienceLike}
+            </if>
+
+			<if test="workExperiences != null and workExperiences.size() &gt; 0">
+			    and E.WORK_EXPERIENCE_ IN
+                <foreach item="x_workExperience" index="index" collection="workExperiences" 
+                     open="(" separator="," close=")">
+                  #{x_workExperience}
+                </foreach>
+			</if>
+	        
+			<if test="tenantId != null and tenantId != '' ">
+				and E.TENANT_ID_ = #{tenantId}
+            </if>
+
+			<if test="tenantIdLike != null and tenantIdLike != '' ">
+				and E.TENANT_ID_ like #{tenantIdLike}
+            </if>
+
+			<if test="tenantIds != null and tenantIds.size() &gt; 0">
+			    and E.TENANT_ID_ IN
+                <foreach item="x_tenantId" index="index" collection="tenantIds" 
+                     open="(" separator="," close=")">
+                  #{x_tenantId}
+                </foreach>
+			</if>
+	        
+			<if test="tenantName != null and tenantName != '' ">
+				and E.TENANT_NAME_ = #{tenantName}
+            </if>
+
+			<if test="tenantNameLike != null and tenantNameLike != '' ">
+				and E.TENANT_NAME_ like #{tenantNameLike}
+            </if>
+
+			<if test="tenantNames != null and tenantNames.size() &gt; 0">
+			    and E.TENANT_NAME_ IN
+                <foreach item="x_tenantName" index="index" collection="tenantNames" 
+                     open="(" separator="," close=")">
+                  #{x_tenantName}
+                </foreach>
+			</if>
+
+			<if test="deleteFlag != null">
+				and E.DELETE_FLAG_ = #{deleteFlag}
+            </if>
+
+			<if test="deleteFlagGreaterThanOrEqual != null">
+				and E.DELETE_FLAG_ &gt;= #{deleteFlagGreaterThanOrEqual}
+            </if>
+
+			<if test="deleteFlagLessThanOrEqual != null">
+				and E.DELETE_FLAG_ &lt;= #{deleteFlagLessThanOrEqual}
+            </if>
+
+			<if test="deleteFlags != null and deleteFlags.size() &gt; 0">
+			    and E.DELETE_FLAG_ IN
+                <foreach item="x_deleteFlag" index="index" collection="deleteFlags" 
+                     open="(" separator="," close=")">
+                  #{x_deleteFlag}
+                </foreach>
+			</if>
+      
+	        
+			<if test="topid != null and topid != '' ">
+				and E.TOPID = #{topid}
+            </if>
+
+			<if test="topidLike != null and topidLike != '' ">
+				and E.TOPID like #{topidLike}
+            </if>
+
+			<if test="topids != null and topids.size() &gt; 0">
+			    and E.TOPID IN
+                <foreach item="x_topid" index="index" collection="topids" 
+                     open="(" separator="," close=")">
+                  #{x_topid}
+                </foreach>
+			</if>
+
+			<if test="parentId != null">
+				and E.PARENT_ID = #{parentId}
+            </if>
+
+			<if test="parentIdGreaterThanOrEqual != null">
+				and E.PARENT_ID &gt;= #{parentIdGreaterThanOrEqual}
+            </if>
+
+			<if test="parentIdLessThanOrEqual != null">
+				and E.PARENT_ID &lt;= #{parentIdLessThanOrEqual}
+            </if>
+
+			<if test="parentIds != null and parentIds.size() &gt; 0">
+			    and E.PARENT_ID IN
+                <foreach item="x_parentId" index="index" collection="parentIds" 
+                     open="(" separator="," close=")">
+                  #{x_parentId}
+                </foreach>
+			</if>
+      
+	        
+			<if test="treeId != null and treeId != '' ">
+				and E.TREE_ID = #{treeId}
+            </if>
+
+			<if test="treeIdLike != null and treeIdLike != '' ">
+				and E.TREE_ID like #{treeIdLike}
+            </if>
+
+			<if test="treeIds != null and treeIds.size() &gt; 0">
+			    and E.TREE_ID IN
+                <foreach item="x_treeId" index="index" collection="treeIds" 
+                     open="(" separator="," close=")">
+                  #{x_treeId}
+                </foreach>
+			</if>
+
+			<if test="indexId != null">
+				and E.INDEX_ID = #{indexId}
+            </if>
+
+			<if test="indexIdGreaterThanOrEqual != null">
+				and E.INDEX_ID &gt;= #{indexIdGreaterThanOrEqual}
+            </if>
+
+			<if test="indexIdLessThanOrEqual != null">
+				and E.INDEX_ID &lt;= #{indexIdLessThanOrEqual}
+            </if>
+
+			<if test="indexIds != null and indexIds.size() &gt; 0">
+			    and E.INDEX_ID IN
+                <foreach item="x_indexId" index="index" collection="indexIds" 
+                     open="(" separator="," close=")">
+                  #{x_indexId}
+                </foreach>
+			</if>
+      
+
+			<if test="listno != null">
+				and E.LISTNO = #{listno}
+            </if>
+
+			<if test="listnoGreaterThanOrEqual != null">
+				and E.LISTNO &gt;= #{listnoGreaterThanOrEqual}
+            </if>
+
+			<if test="listnoLessThanOrEqual != null">
+				and E.LISTNO &lt;= #{listnoLessThanOrEqual}
+            </if>
+
+			<if test="listnos != null and listnos.size() &gt; 0">
+			    and E.LISTNO IN
+                <foreach item="x_listno" index="index" collection="listnos" 
+                     open="(" separator="," close=")">
+                  #{x_listno}
+                </foreach>
+			</if>
+      
+
+			<if test="createdateGreaterThanOrEqual != null">
+				and E.CREATEDATE &gt;= #{createdateGreaterThanOrEqual}
+            </if>
+
+			<if test="createdateLessThanOrEqual != null">
+				and E.CREATEDATE &lt;= #{createdateLessThanOrEqual}
+            </if>
+
+
+			<if test="updatedateGreaterThanOrEqual != null">
+				and E.UPDATEDATE &gt;= #{updatedateGreaterThanOrEqual}
+            </if>
+
+			<if test="updatedateLessThanOrEqual != null">
+				and E.UPDATEDATE &lt;= #{updatedateLessThanOrEqual}
+            </if>
+
+	        
+			<if test="lessessid != null and lessessid != '' ">
+				and E.LESSESSID = #{lessessid}
+            </if>
+
+			<if test="lessessidLike != null and lessessidLike != '' ">
+				and E.LESSESSID like #{lessessidLike}
+            </if>
+
+			<if test="lessessids != null and lessessids.size() &gt; 0">
+			    and E.LESSESSID IN
+                <foreach item="x_lessessid" index="index" collection="lessessids" 
+                     open="(" separator="," close=")">
+                  #{x_lessessid}
+                </foreach>
+			</if>
+	        
+			<if test="creater != null and creater != '' ">
+				and E.CREATER = #{creater}
+            </if>
+
+			<if test="createrLike != null and createrLike != '' ">
+				and E.CREATER like #{createrLike}
+            </if>
+
+			<if test="creaters != null and creaters.size() &gt; 0">
+			    and E.CREATER IN
+                <foreach item="x_creater" index="index" collection="creaters" 
+                     open="(" separator="," close=")">
+                  #{x_creater}
+                </foreach>
+			</if>
+	        
+			<if test="updater != null and updater != '' ">
+				and E.UPDATER = #{updater}
+            </if>
+
+			<if test="updaterLike != null and updaterLike != '' ">
+				and E.UPDATER like #{updaterLike}
+            </if>
+
+			<if test="updaters != null and updaters.size() &gt; 0">
+			    and E.UPDATER IN
+                <foreach item="x_updater" index="index" collection="updaters" 
+                     open="(" separator="," close=")">
+                  #{x_updater}
+                </foreach>
+			</if>
+		</where>
+	</sql>
+
+</mapper>
