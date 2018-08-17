@@ -50,6 +50,33 @@
 					//alert('before refresh');
 				}
 		    });
+
+       //debugger;
+       // ztree
+       $.fn.zTree.init($("#ztree"), {
+           async: {
+               enable: true,
+               url: '${contextPath}/hr/base/department',
+               autoParam: ["parentId=pId", "id"],
+               otherParam: {
+
+               },
+               //dataFilter: function(){}
+           },
+           callback: {
+               onAsyncSuccess: function() {
+               }
+           },
+           data: {
+               simpleData: {
+                   enable: true,
+                   idKey: "id",
+                   pIdKey: "parentId",
+               }
+           },
+           edit: {
+           }
+       });
 	});
 
 
@@ -290,31 +317,35 @@
                   });
 
 	    jQuery('#dlg').dialog('close');
-	}
+
+
+    }
 		 
 </script>
 </head>
 <body style="margin:1px;">  
 <div style="margin:0;"></div>  
-<div class="easyui-layout" data-options="fit:true">  
-   <div data-options="region:'north',split:true,border:true" style="height:40px"> 
-    <div class="toolbar-backgroud"  > 
-	<img src="${contextPath}/static/images/window.png">
-	&nbsp;<span class="x_content_title">人员基本信息列表</span>
-    <a href="#" class="easyui-linkbutton" data-options="plain:true, iconCls:'icon-add'" 
-	   onclick="javascript:addNew();">新增</a>  
-    <a href="#" class="easyui-linkbutton" data-options="plain:true, iconCls:'icon-edit'"
-	   onclick="javascript:editSelected();">修改</a>  
-	<a href="#" class="easyui-linkbutton" data-options="plain:true, iconCls:'icon-remove'"
-	   onclick="javascript:deleteSelections();">删除</a> 
-	<a href="#" class="easyui-linkbutton" data-options="plain:true, iconCls:'icon-search'"
-	   onclick="javascript:searchWin();">查找</a>
-   </div> 
-  </div> 
-  <div data-options="region:'center',border:true">
-	 <table id="mydatagrid"></table>
-  </div>  
-</div>
+<div class="easyui-layout" data-options="fit:true">
+    <div data-options="region:'west',split:true,border:true" style="width:200px">
+		<ul id="ztree" class="ztree"></ul>
+	</div>
+	<div data-options="region:'north',split:true,border:true" style="height:40px">
+		<div class="toolbar-backgroud"  >
+			<img src="${contextPath}/static/images/window.png">
+			&nbsp;<span class="x_content_title">人员基本信息列表</span>
+			<a href="#" class="easyui-linkbutton" data-options="plain:true, iconCls:'icon-add'"
+			   onclick="javascript:addNew();">新增</a>
+			<a href="#" class="easyui-linkbutton" data-options="plain:true, iconCls:'icon-edit'"
+			   onclick="javascript:editSelected();">修改</a>
+			<a href="#" class="easyui-linkbutton" data-options="plain:true, iconCls:'icon-remove'"
+			   onclick="javascript:deleteSelections();">删除</a>
+			<a href="#" class="easyui-linkbutton" data-options="plain:true, iconCls:'icon-search'"
+			   onclick="javascript:searchWin();">查找</a>
+	   </div>
+  	</div>
+	<div data-options="region:'center',border:true">
+		<table id="mydatagrid"></table>
+	</div>
 </div>
 </body>
 </html>
